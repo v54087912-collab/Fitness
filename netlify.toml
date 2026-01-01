@@ -1,0 +1,16 @@
+[build]
+  publish = "viixelite-main"
+  command = ""  # No build command needed for static HTML
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false # Only redirect if file not found (simulates SPA if needed, but safe for multi-page)
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
