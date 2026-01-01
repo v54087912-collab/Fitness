@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet Plans - Viixelite</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- External CSS -->
-    <link rel="stylesheet" href="diets.css">
+    <title>Inventory - ViixElite System</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="auth.js"></script>
 </head>
 <body>
+    <div class="scanline"></div>
+
     <!-- Header -->
     <header class="main-header">
         <div class="logo">
-            <!-- LOGO.png same folder me hona chahiye; placeholder agar नहीं है -->
-            <img src="LOGO.png" alt="Viixelite Logo" onerror="this.style.display='none'">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                VIIX<span>ELITE</span>
+            </a>
         </div>
 
         <input type="checkbox" id="menu-toggle" class="menu-toggle">
@@ -26,257 +23,185 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
-                <li><a href="diets.html" class="active">Diets</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li><a href="blog.html">Blogs</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="index.html">Main Hall</a></li>
+                <li><a href="FITNESS%20CATERGORY.html">Dungeon Gates</a></li>
+                <li><a href="diets.html" class="active">Inventory</a></li>
+                <li><a href="plans.html">Quests</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="blog.html">Archives</a></li>
+                <li id="auth-link-container">
+                    <a href="auth.html" id="nav-auth-btn" style="color: var(--sys-cyan);">Awaken</a>
+                </li>
             </ul>
         </nav>
     </header>
 
-    <!-- Diet Plans Hero Section -->
-    <section class="diet-hero">
-        <h1>Personalized Diet Plans</h1>
-        <p>Choose from our carefully curated diet plans based on your preferences and goals. Filter by dietary type and find the perfect plan for your lifestyle.</p>
-    </section>
-
-    <!-- Category Filters -->
-    <section class="category-filters">
-        <div class="filter-buttons">
-            <button class="filter-btn active" data-filter="all">All Plans</button>
-            <button class="filter-btn veg" data-filter="veg">Vegetarian</button>
-            <button class="filter-btn non-veg" data-filter="non-veg">Non-Vegetarian</button>
-            <button class="filter-btn vegan" data-filter="vegan">Vegan</button>
-            <button class="filter-btn keto" data-filter="keto">Keto</button>
-            <button class="filter-btn gluten-free" data-filter="gluten-free">Gluten-Free</button>
-            <button class="filter-btn balanced" data-filter="balanced">Balanced</button>
+    <!-- Hero Section -->
+    <section class="hero-section" style="min-height: 40vh; background: transparent;">
+        <div class="hero-content">
+            <h1>Recovery Shop <span style="color: var(--sys-cyan);">[INVENTORY]</span></h1>
+            <p>Purchase consumable items to restore HP, MP, and enhance your stats.</p>
         </div>
     </section>
 
-    <!-- Diet Plans Grid -->
-    <section class="diet-plans-section">
-        <h2 class="section-heading">Available Diet Plans</h2>
-        <div class="plans-grid">
-            <!-- Plan 1 -->
-            <div class="plan-card" data-categories="veg balanced">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-veg">Vegetarian</span>
-                        <span class="plan-badge badge-balanced">Balanced</span>
+    <!-- Inventory Section -->
+    <section class="inventory-section">
+
+        <div class="inventory-filters">
+            <button class="inventory-filter-btn active" data-filter="all">All Items</button>
+            <button class="inventory-filter-btn" data-filter="potion">Potions</button>
+            <button class="inventory-filter-btn" data-filter="elixir">Elixirs</button>
+            <button class="inventory-filter-btn" data-filter="food">Rations</button>
+        </div>
+
+        <div class="inventory-grid">
+
+            <!-- Item 1 (Keto) -->
+            <div class="item-slot">
+                <span class="item-rarity rarity-rare">Rare</span>
+                <div class="item-icon-container">🧪</div>
+                <div class="item-name">High Grade Mana Potion</div>
+                <div class="item-stats">
+                    <div class="stat-row">
+                        <span>Type:</span> <span class="stat-val">Fat Burn (Keto)</span>
                     </div>
-                    <h3>21-Day Weight Loss</h3>
+                    <div class="stat-row">
+                        <span>Duration:</span> <span class="stat-val">30 Days</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>MP Recovery:</span> <span class="stat-val">+500 / Day</span>
+                    </div>
                 </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 21 days</span>
-                        <span>Calories: 1500/day</span>
-                    </div>
-                    <p>A balanced vegetarian plan focused on sustainable weight loss with nutrient-rich foods.</p>
-                    <button class="view-plan-btn" data-plan="weight-loss-veg">View Plan</button>
+                <div class="item-actions">
+                    <button class="equip-btn" onclick="alert('Item Equipped: Fat Burn Mode Activated')">Consume</button>
                 </div>
             </div>
 
-            <!-- Plan 2 -->
-            <div class="plan-card" data-categories="non-veg keto">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-non-veg">Non-Veg</span>
-                        <span class="plan-badge badge-keto">Keto</span>
+            <!-- Item 2 (Muscle Building) -->
+            <div class="item-slot">
+                <span class="item-rarity rarity-epic">Epic</span>
+                <div class="item-icon-container">💪</div>
+                <div class="item-name">Strength Elixir</div>
+                <div class="item-stats">
+                    <div class="stat-row">
+                        <span>Type:</span> <span class="stat-val">Protein Boost</span>
                     </div>
-                    <h3>Keto Fat Burn</h3>
+                    <div class="stat-row">
+                        <span>Duration:</span> <span class="stat-val">60 Days</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>STR Increase:</span> <span class="stat-val">+25%</span>
+                    </div>
                 </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 30 days</span>
-                        <span>Calories: 1800/day</span>
-                    </div>
-                    <p>High-protein, low-carb plan with chicken, fish and eggs for rapid fat loss.</p>
-                    <button class="view-plan-btn" data-plan="keto-fat-burn">View Plan</button>
-                </div>
-            </div>
-
-            <!-- Plan 3 -->
-            <div class="plan-card" data-categories="vegan gluten-free">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-vegan">Vegan</span>
-                        <span class="plan-badge badge-gluten-free">Gluten-Free</span>
-                    </div>
-                    <h3>Plant-Based Cleanse</h3>
-                </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 14 days</span>
-                        <span>Calories: 1600/day</span>
-                    </div>
-                    <p>Detoxifying vegan plan with gluten-free options for optimal digestion.</p>
-                    <button class="view-plan-btn" data-plan="plant-based-cleanse">View Plan</button>
+                <div class="item-actions">
+                    <button class="equip-btn" onclick="alert('Item Equipped: Strength Multiplier Active')">Consume</button>
                 </div>
             </div>
 
-            <!-- Plan 4 -->
-            <div class="plan-card" data-categories="non-veg balanced">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-non-veg">Non-Vegetarian</span>
-                        <span class="plan-badge badge-balanced">Balanced</span>
+            <!-- Item 3 (Vegan) -->
+            <div class="item-slot">
+                <span class="item-rarity rarity-common">Common</span>
+                <div class="item-icon-container">🌿</div>
+                <div class="item-name">Nature's Blessing</div>
+                <div class="item-stats">
+                    <div class="stat-row">
+                        <span>Type:</span> <span class="stat-val">Plant Based</span>
                     </div>
-                    <h3>Muscle Building</h3>
+                    <div class="stat-row">
+                        <span>Effect:</span> <span class="stat-val">Detoxify</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Agility:</span> <span class="stat-val">+10%</span>
+                    </div>
                 </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 60 days</span>
-                        <span>Calories: 2500/day</span>
-                    </div>
-                    <p>High-protein diet with chicken, fish and eggs for muscle growth.</p>
-                    <button class="view-plan-btn" data-plan="muscle-building">View Plan</button>
-                </div>
-            </div>
-
-            <!-- Plan 5 -->
-            <div class="plan-card" data-categories="veg keto">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-veg">Vegetarian</span>
-                        <span class="plan-badge badge-keto">Keto</span>
-                    </div>
-                    <h3>Vegetarian Keto</h3>
-                </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 28 days</span>
-                        <span>Calories: 1700/day</span>
-                    </div>
-                    <p>Low-carb vegetarian plan with dairy and plant-based proteins.</p>
-                    <button class="view-plan-btn" data-plan="veg-keto">View Plan</button>
+                <div class="item-actions">
+                    <button class="equip-btn" onclick="alert('Item Equipped: Nature Aura Active')">Consume</button>
                 </div>
             </div>
 
-            <!-- Plan 6 -->
-            <div class="plan-card" data-categories="vegan balanced">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-vegan">Vegan</span>
-                        <span class="plan-badge badge-balanced">Balanced</span>
+            <!-- Item 4 (Vegetarian Balanced) -->
+            <div class="item-slot">
+                <span class="item-rarity rarity-common">Common</span>
+                <div class="item-icon-container">🥗</div>
+                <div class="item-name">Standard Ration (Veg)</div>
+                <div class="item-stats">
+                    <div class="stat-row">
+                        <span>Type:</span> <span class="stat-val">Balanced Diet</span>
                     </div>
-                    <h3>Complete Vegan Nutrition</h3>
+                    <div class="stat-row">
+                        <span>Duration:</span> <span class="stat-val">21 Days</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>HP Recovery:</span> <span class="stat-val">Moderate</span>
+                    </div>
                 </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 90 days</span>
-                        <span>Calories: 2000/day</span>
-                    </div>
-                    <p>Well-balanced vegan diet with all essential nutrients.</p>
-                    <button class="view-plan-btn" data-plan="complete-vegan">View Plan</button>
-                </div>
-            </div>
-
-            <!-- Plan 7 -->
-            <div class="plan-card" data-categories="non-veg balanced">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-non-veg">Non-Veg</span>
-                        <span class="plan-badge badge-balanced">Balanced</span>
-                    </div>
-                    <h3>High Protein Diet</h3>
-                </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 45 days</span>
-                        <span>Calories: 2200/day</span>
-                    </div>
-                    <p>Protein-rich diet for athletes and fitness enthusiasts.</p>
-                    <button class="view-plan-btn" data-plan="high-protein">View Plan</button>
+                <div class="item-actions">
+                    <button class="equip-btn">Consume</button>
                 </div>
             </div>
 
-            <!-- Plan 8 -->
-            <div class="plan-card" data-categories="veg balanced">
-                <div class="plan-header">
-                    <div class="plan-badges">
-                        <span class="plan-badge badge-veg">Vegetarian</span>
-                        <span class="plan-badge badge-balanced">Balanced</span>
+            <!-- Item 5 (Non-Veg High Protein) -->
+            <div class="item-slot">
+                <span class="item-rarity rarity-rare">Rare</span>
+                <div class="item-icon-container">🍖</div>
+                <div class="item-name">Hunter's Feast</div>
+                <div class="item-stats">
+                    <div class="stat-row">
+                        <span>Type:</span> <span class="stat-val">High Protein</span>
                     </div>
-                    <h3>Weight Maintenance</h3>
+                    <div class="stat-row">
+                        <span>Duration:</span> <span class="stat-val">45 Days</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Stamina:</span> <span class="stat-val">+150</span>
+                    </div>
                 </div>
-                <div class="plan-details">
-                    <div class="plan-meta">
-                        <span>Duration: 120 days</span>
-                        <span>Calories: 2000/day</span>
-                    </div>
-                    <p>Maintain your ideal weight with this balanced vegetarian plan.</p>
-                    <button class="view-plan-btn" data-plan="weight-maintenance">View Plan</button>
+                <div class="item-actions">
+                    <button class="equip-btn">Consume</button>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Plan Details Modal -->
-    <div class="plan-modal" id="planModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Diet Plan Details</h2>
-                <button class="close-modal" aria-label="Close modal">&times;</button>
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>VIIX<span>ELITE</span></h2>
+                <p>Level Up Your Life.</p>
             </div>
-            <div class="modal-body">
-                <div class="day-selector">
-                    <!-- Day buttons generated by JS -->
-                </div>
-                <div class="meal-plan" id="mealPlanContent">
-                    <!-- Meal plan content generated by JS -->
-                </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Main Hall</a></li>
+                    <li><a href="FITNESS%20CATERGORY.html">Dungeon Gates</a></li>
+                    <li><a href="plans.html">Quests</a></li>
+                    <li><a href="faq.html">System Help</a></li>
+                    <li><a href="about.html">Guild Info</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Connect</h3>
+                <a href="#">Instagram</a>
+                <a href="#">YouTube</a>
             </div>
         </div>
-    </div>
+        <div style="text-align: center; margin-top: 2rem; color: #555; font-size: 0.8rem;">
+            © 2025 ViixElite System. All rights reserved.
+        </div>
+    </footer>
 
-   <!-- ===== Footer Section ===== -->
-<footer class="main-footer">
-  <div class="footer-container">
-    
-    <!-- Brand/Logo -->
-    <div class="footer-brand">
-      <h2>Viixelite</h2>
-      <p>Transform Your Body, Transform Your Life</p>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">Faq</a></li>
-        <li><a href="diets.html">Diet</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="footer-contact">
-      <h3>Contact Us</h3>
-      <p>Email : yashasvidhiman113@gmail.com</p>
-      <p>Phone : 8057640790</p>
-    </div>
-
-    <!-- Social Media -->
-    <div class="footer-social">
-      <h3>Follow Us</h3>
-      <a href="http://www.instagram.com/janxcode?igsh=dGcwNmZncGN5cDbU">Instagram</a>
-      <a href="https://www.youtube.com/@StrawJan">YouTube</a>
-    </div>
-  </div>
-
-  <!-- Bottom Footer -->
-  <div class="footer-bottom">
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="terms.html">Terms of Service</a>
-    <p>© 2025 Viixelite. All rights reserved.</p>
-  </div>
-</footer>
-
-    <!-- External JS -->
-    <script src="diets.js"></script>
+    <!-- No external diets.js as we use static item slots for now, logic can be added later if needed -->
+    <script>
+        // Simple filter logic for demonstration (future enhancement)
+        const buttons = document.querySelectorAll('.inventory-filter-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>

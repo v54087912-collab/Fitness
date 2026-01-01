@@ -267,6 +267,216 @@ a:hover {
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
+/* ===== Inventory & Quest Grid (Shared) ===== */
+.inventory-section, .quest-section {
+    padding: 4rem 5%;
+}
+
+.inventory-filters, .quest-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.inventory-filter-btn, .quest-filter-btn {
+    background: rgba(11, 13, 23, 0.8);
+    border: 1px solid var(--sys-text-dim);
+    color: var(--sys-text-dim);
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.inventory-filter-btn:hover, .quest-filter-btn:hover,
+.inventory-filter-btn.active, .quest-filter-btn.active {
+    border-color: var(--sys-cyan);
+    color: var(--sys-cyan);
+    box-shadow: 0 0 10px var(--sys-cyan-dim);
+}
+
+.inventory-grid, .quest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+/* ===== Item Slot (Inventory) ===== */
+.item-slot {
+    background: rgba(11, 13, 23, 0.7);
+    border: 1px solid var(--sys-cyan-dim);
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.item-slot:hover {
+    border-color: var(--sys-cyan);
+    box-shadow: inset 0 0 20px rgba(0, 243, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.item-rarity {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 0.7rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+}
+
+.rarity-common { color: var(--sys-text-dim); border: 1px solid var(--sys-text-dim); }
+.rarity-rare { color: var(--sys-cyan); border: 1px solid var(--sys-cyan); }
+.rarity-epic { color: #bf00ff; border: 1px solid #bf00ff; box-shadow: 0 0 5px rgba(191, 0, 255, 0.4); }
+.rarity-legendary { color: var(--sys-gold); border: 1px solid var(--sys-gold); box-shadow: 0 0 5px rgba(255, 215, 0, 0.4); }
+
+.item-icon-container {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 5px var(--sys-cyan-dim));
+}
+
+.item-name {
+    font-family: var(--font-heading);
+    color: var(--sys-text-white);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.item-stats {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--sys-text-dim);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 0.2rem;
+}
+
+.stat-val {
+    color: var(--sys-cyan);
+    font-family: var(--font-mono);
+}
+
+.equip-btn {
+    background: transparent;
+    border: 1px solid var(--sys-cyan);
+    color: var(--sys-cyan);
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    transition: all 0.3s;
+    width: 100%;
+}
+
+.equip-btn:hover {
+    background: var(--sys-cyan);
+    color: var(--sys-bg-dark);
+    box-shadow: 0 0 15px var(--sys-cyan);
+}
+
+/* ===== Quest Card (Plans) ===== */
+.quest-card {
+    background: rgba(11, 13, 23, 0.7);
+    border: 1px solid var(--sys-danger); /* Quests use red accents sometimes */
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.quest-card.rank-e, .quest-card.rank-d { border-color: var(--sys-text-dim); }
+.quest-card.rank-c, .quest-card.rank-b { border-color: var(--sys-cyan); }
+.quest-card.rank-a, .quest-card.rank-s { border-color: var(--sys-danger); }
+
+.quest-card:hover {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+.rank-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sys-bg-dark);
+    border: 1px solid currentColor;
+    padding: 0.2rem 1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.rank-e { color: var(--sys-text-dim); }
+.rank-b { color: var(--sys-cyan); }
+.rank-s { color: var(--sys-danger); text-shadow: 0 0 10px var(--sys-danger); }
+
+.quest-title {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.quest-desc {
+    color: var(--sys-text-dim);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.quest-rewards {
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    border-bottom: 1px dashed rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    margin-bottom: 1.5rem;
+}
+
+.reward-row {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--sys-gold);
+}
+
+.accept-btn {
+    width: 100%;
+    padding: 0.8rem;
+    background: transparent;
+    border: 1px solid currentColor;
+    color: inherit; /* Inherits from card/rank color */
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.quest-card.rank-b .accept-btn { color: var(--sys-cyan); border-color: var(--sys-cyan); }
+.quest-card.rank-s .accept-btn { color: var(--sys-danger); border-color: var(--sys-danger); }
+
+.accept-btn:hover {
+    background: currentColor;
+    color: var(--sys-bg-dark) !important;
+    box-shadow: 0 0 15px currentColor;
+}
+
+
 /* ===== Footer ===== */
 .main-footer {
     border-top: 1px solid var(--sys-cyan-dim);
