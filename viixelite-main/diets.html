@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Plans - Viixelite</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="diets.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <!-- LOGO.png same folder me hona chahiye; placeholder agar नहीं है -->
+            <img src="LOGO.png" alt="Viixelite Logo" onerror="this.style.display='none'">
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
+                <li><a href="diets.html" class="active">Diets</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Diet Plans Hero Section -->
+    <section class="diet-hero">
+        <h1>Personalized Diet Plans</h1>
+        <p>Choose from our carefully curated diet plans based on your preferences and goals. Filter by dietary type and find the perfect plan for your lifestyle.</p>
+    </section>
+
+    <!-- Category Filters -->
+    <section class="category-filters">
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All Plans</button>
+            <button class="filter-btn veg" data-filter="veg">Vegetarian</button>
+            <button class="filter-btn non-veg" data-filter="non-veg">Non-Vegetarian</button>
+            <button class="filter-btn vegan" data-filter="vegan">Vegan</button>
+            <button class="filter-btn keto" data-filter="keto">Keto</button>
+            <button class="filter-btn gluten-free" data-filter="gluten-free">Gluten-Free</button>
+            <button class="filter-btn balanced" data-filter="balanced">Balanced</button>
+        </div>
+    </section>
+
+    <!-- Diet Plans Grid -->
+    <section class="diet-plans-section">
+        <h2 class="section-heading">Available Diet Plans</h2>
+        <div class="plans-grid">
+            <!-- Plan 1 -->
+            <div class="plan-card" data-categories="veg balanced">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-veg">Vegetarian</span>
+                        <span class="plan-badge badge-balanced">Balanced</span>
+                    </div>
+                    <h3>21-Day Weight Loss</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 21 days</span>
+                        <span>Calories: 1500/day</span>
+                    </div>
+                    <p>A balanced vegetarian plan focused on sustainable weight loss with nutrient-rich foods.</p>
+                    <button class="view-plan-btn" data-plan="weight-loss-veg">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 2 -->
+            <div class="plan-card" data-categories="non-veg keto">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-non-veg">Non-Veg</span>
+                        <span class="plan-badge badge-keto">Keto</span>
+                    </div>
+                    <h3>Keto Fat Burn</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 30 days</span>
+                        <span>Calories: 1800/day</span>
+                    </div>
+                    <p>High-protein, low-carb plan with chicken, fish and eggs for rapid fat loss.</p>
+                    <button class="view-plan-btn" data-plan="keto-fat-burn">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 3 -->
+            <div class="plan-card" data-categories="vegan gluten-free">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-vegan">Vegan</span>
+                        <span class="plan-badge badge-gluten-free">Gluten-Free</span>
+                    </div>
+                    <h3>Plant-Based Cleanse</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 14 days</span>
+                        <span>Calories: 1600/day</span>
+                    </div>
+                    <p>Detoxifying vegan plan with gluten-free options for optimal digestion.</p>
+                    <button class="view-plan-btn" data-plan="plant-based-cleanse">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 4 -->
+            <div class="plan-card" data-categories="non-veg balanced">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-non-veg">Non-Vegetarian</span>
+                        <span class="plan-badge badge-balanced">Balanced</span>
+                    </div>
+                    <h3>Muscle Building</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 60 days</span>
+                        <span>Calories: 2500/day</span>
+                    </div>
+                    <p>High-protein diet with chicken, fish and eggs for muscle growth.</p>
+                    <button class="view-plan-btn" data-plan="muscle-building">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 5 -->
+            <div class="plan-card" data-categories="veg keto">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-veg">Vegetarian</span>
+                        <span class="plan-badge badge-keto">Keto</span>
+                    </div>
+                    <h3>Vegetarian Keto</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 28 days</span>
+                        <span>Calories: 1700/day</span>
+                    </div>
+                    <p>Low-carb vegetarian plan with dairy and plant-based proteins.</p>
+                    <button class="view-plan-btn" data-plan="veg-keto">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 6 -->
+            <div class="plan-card" data-categories="vegan balanced">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-vegan">Vegan</span>
+                        <span class="plan-badge badge-balanced">Balanced</span>
+                    </div>
+                    <h3>Complete Vegan Nutrition</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 90 days</span>
+                        <span>Calories: 2000/day</span>
+                    </div>
+                    <p>Well-balanced vegan diet with all essential nutrients.</p>
+                    <button class="view-plan-btn" data-plan="complete-vegan">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 7 -->
+            <div class="plan-card" data-categories="non-veg balanced">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-non-veg">Non-Veg</span>
+                        <span class="plan-badge badge-balanced">Balanced</span>
+                    </div>
+                    <h3>High Protein Diet</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 45 days</span>
+                        <span>Calories: 2200/day</span>
+                    </div>
+                    <p>Protein-rich diet for athletes and fitness enthusiasts.</p>
+                    <button class="view-plan-btn" data-plan="high-protein">View Plan</button>
+                </div>
+            </div>
+
+            <!-- Plan 8 -->
+            <div class="plan-card" data-categories="veg balanced">
+                <div class="plan-header">
+                    <div class="plan-badges">
+                        <span class="plan-badge badge-veg">Vegetarian</span>
+                        <span class="plan-badge badge-balanced">Balanced</span>
+                    </div>
+                    <h3>Weight Maintenance</h3>
+                </div>
+                <div class="plan-details">
+                    <div class="plan-meta">
+                        <span>Duration: 120 days</span>
+                        <span>Calories: 2000/day</span>
+                    </div>
+                    <p>Maintain your ideal weight with this balanced vegetarian plan.</p>
+                    <button class="view-plan-btn" data-plan="weight-maintenance">View Plan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan Details Modal -->
+    <div class="plan-modal" id="planModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Diet Plan Details</h2>
+                <button class="close-modal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="day-selector">
+                    <!-- Day buttons generated by JS -->
+                </div>
+                <div class="meal-plan" id="mealPlanContent">
+                    <!-- Meal plan content generated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- ===== Footer Section ===== -->
+<footer class="main-footer">
+  <div class="footer-container">
+    
+    <!-- Brand/Logo -->
+    <div class="footer-brand">
+      <h2>Viixelite</h2>
+      <p>Transform Your Body, Transform Your Life</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="faq.html">Faq</a></li>
+        <li><a href="diets.html">Diet</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Email : yashasvidhiman113@gmail.com</p>
+      <p>Phone : 8057640790</p>
+    </div>
+
+    <!-- Social Media -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <a href="http://www.instagram.com/janxcode?igsh=dGcwNmZncGN5cDbU">Instagram</a>
+      <a href="https://www.youtube.com/@StrawJan">YouTube</a>
+    </div>
+  </div>
+
+  <!-- Bottom Footer -->
+  <div class="footer-bottom">
+    <a href="privacy.html">Privacy Policy</a> | 
+    <a href="terms.html">Terms of Service</a>
+    <p>© 2025 Viixelite. All rights reserved.</p>
+  </div>
+</footer>
+
+    <!-- External JS -->
+    <script src="diets.js"></script>
+</body>
+</html>
