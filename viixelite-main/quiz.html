@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Plan - Viixelite</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+             <a href="index.html" style="color: inherit; text-decoration: none;">Viixelite</a>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
+
+        <nav class="main-nav">
+             <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="auth.html" style="color: #ff5722;">Login</a></li>
+            </ul>
+             <button id="theme-toggle-btn" class="theme-toggle">🌓 Mode</button>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="min-height: auto; padding-bottom: 2rem;">
+        <div class="hero-content" style="text-align: center; margin: 0 auto;">
+            <h1>Let's Find Your Perfect Plan</h1>
+            <p>Answer 3 simple questions to get a personalized recommendation.</p>
+        </div>
+    </section>
+
+    <div class="quiz-container">
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+
+        <!-- Step 1: Goal -->
+        <div class="quiz-step active" id="step-1" data-key="goal">
+            <h2>What is your primary goal?</h2>
+            <button class="option-btn" data-value="lose">🏃‍♂️ Weight Loss & Cardio</button>
+            <button class="option-btn" data-value="gain">💪 Muscle Gain & Strength</button>
+            <button class="option-btn" data-value="endurance">⚡ Endurance & Stamina</button>
+        </div>
+
+        <!-- Step 2: Experience -->
+        <div class="quiz-step" id="step-2" data-key="level">
+            <h2>What is your fitness level?</h2>
+            <button class="option-btn" data-value="beginner">🌱 Beginner (New to fitness)</button>
+            <button class="option-btn" data-value="intermediate">🌿 Intermediate (Some experience)</button>
+            <button class="option-btn" data-value="advanced">🌳 Advanced (Consistent training)</button>
+        </div>
+
+        <!-- Step 3: Preference -->
+        <div class="quiz-step" id="step-3" data-key="preference">
+            <h2>How do you prefer to train?</h2>
+            <button class="option-btn" data-value="gym">🏋️‍♀️ Gym Equipment</button>
+            <button class="option-btn" data-value="home">🏠 Home Workouts (Bodyweight)</button>
+        </div>
+
+    </div>
+
+    <script src="theme.js"></script>
+    <script src="quiz.js"></script>
+</body>
+</html>

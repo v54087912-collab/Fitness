@@ -1,0 +1,100 @@
+/* Challenge Styles */
+.challenge-container {
+    max-width: 1000px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.challenge-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-color);
+}
+
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1.5rem;
+}
+
+.day-card {
+    background: var(--feature-card-bg);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    padding: 1.5rem 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.day-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-orange);
+}
+
+.day-card.completed {
+    background: #4caf50;
+    color: #fff;
+}
+
+.day-card.completed h3 {
+    color: #fff;
+}
+
+.day-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--features-text);
+}
+
+.day-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.day-card.completed p {
+    color: #e8f5e9;
+}
+
+.status-check {
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.day-card.completed .status-check {
+    opacity: 1;
+}
+
+.challenge-progress {
+    margin-bottom: 2rem;
+    background: var(--feature-card-bg);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--features-text);
+}
+
+.progress-text {
+    font-weight: bold;
+    color: var(--accent-orange);
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid #f44336;
+    color: #f44336;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background: #f44336;
+    color: #fff;
+}

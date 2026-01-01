@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tools - Viixelite</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tools.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="logo">
+            <a href="index.html" style="color: inherit; text-decoration: none;">Viixelite</a>
+        </div>
+
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
+        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
+                <li><a href="plans.html">Plans</a></li>
+                <li><a href="tools.html" class="active">Tools</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="auth.html" style="color: #ff5722;">Login</a></li>
+            </ul>
+            <button id="theme-toggle-btn" class="theme-toggle">🌓 Mode</button>
+        </nav>
+    </header>
+
+    <section class="hero-section" style="padding: 4rem 5%; min-height: auto;">
+        <div class="hero-content" style="max-width: 100%;">
+            <h1>Fitness Tools</h1>
+            <p>Track your progress and plan your nutrition with our interactive calculators.</p>
+        </div>
+    </section>
+
+    <div class="tools-container">
+        <div class="tools-grid">
+            <!-- BMI Calculator -->
+            <div class="tool-card">
+                <h2><span style="font-size:1.5em">⚖️</span> BMI Calculator</h2>
+                <div class="input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="bmi-height" placeholder="e.g. 175">
+                </div>
+                <div class="input-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="bmi-weight" placeholder="e.g. 70">
+                </div>
+                <button class="tool-btn" id="calculate-bmi">Calculate BMI</button>
+
+                <div class="result-box" id="bmi-result">
+                    <div class="result-value">--</div>
+                    <div class="result-desc">--</div>
+                </div>
+            </div>
+
+            <!-- BMR Calculator -->
+            <div class="tool-card">
+                <h2><span style="font-size:1.5em">🔥</span> BMR Calculator</h2>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <select id="bmr-gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Age</label>
+                    <input type="number" id="bmr-age" placeholder="e.g. 25">
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Height (cm)</label>
+                        <input type="number" id="bmr-height" placeholder="175">
+                    </div>
+                    <div class="input-group">
+                        <label>Weight (kg)</label>
+                        <input type="number" id="bmr-weight" placeholder="70">
+                    </div>
+                </div>
+                <button class="tool-btn" id="calculate-bmr">Calculate Calories</button>
+
+                <div class="result-box" id="bmr-result">
+                    <div class="result-value">--</div>
+                    <div class="result-desc">--</div>
+                </div>
+            </div>
+
+            <!-- Water Tracker -->
+            <div class="tool-card">
+                <h2><span style="font-size:1.5em">💧</span> Water Tracker</h2>
+                <p style="margin-bottom: 1rem; color: var(--text-color);">Recommended based on weight.</p>
+
+                <div class="input-group" style="display: flex; gap: 0.5rem;">
+                    <input type="number" id="water-weight" placeholder="Weight (kg)">
+                    <button class="tool-btn" id="calculate-water" style="width: auto;">Set Goal</button>
+                </div>
+
+                <div class="water-visual">
+                    <div class="water-fill" id="water-fill"></div>
+                </div>
+
+                <div style="text-align: center; margin-bottom: 1rem; color: var(--text-color);">
+                    <span id="current-water" style="font-weight:bold; font-size: 1.2rem;">0 ml</span> / <span id="water-goal">2500 ml</span>
+                </div>
+
+                <div class="water-controls">
+                    <button class="add-water-btn" id="add-glass" title="Add 250ml">+</button>
+                    <button class="add-water-btn" id="reset-water" style="background:#f44336" title="Reset">↻</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-bottom">
+            <p>© 2025 Viixelite. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script src="tools.js"></script>
+</body>
+</html>
