@@ -62,12 +62,7 @@ onAuthStateChanged(auth, (user) => {
 
         // Admin Redirect Logic
         if (currentPath.endsWith('auth.html')) {
-            if (user.email === 'devxrev01@gmail.com') {
-                window.location.replace('dashboard.html');
-            } else {
-                // Redirect regular users to 'plans.html' (acting as 'learn' page)
-                window.location.replace('plans.html');
-            }
+             window.location.replace('dashboard.html');
         }
 
         // If on dashboard, show user info
