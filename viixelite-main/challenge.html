@@ -3,66 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>30-Day Challenge - Viixelite</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>Daily Quest - ViixElite</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="challenge.css">
+    <style>
+        .quest-container {
+            max-width: 600px;
+            margin: 4rem auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .quest-header {
+            text-align: center;
+            border-bottom: 2px solid var(--sys-cyan);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quest-list {
+            list-style: none;
+        }
+
+        .quest-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid var(--sys-cyan-dim);
+            transition: all 0.3s;
+        }
+
+        .quest-item:hover {
+            background: rgba(0, 243, 255, 0.05);
+        }
+
+        .quest-input {
+            background: transparent;
+            border: 1px solid var(--sys-cyan);
+            color: var(--sys-text-white);
+            padding: 0.5rem;
+            width: 80px;
+            text-align: center;
+            font-family: var(--font-mono);
+        }
+
+        .quest-status {
+            color: var(--sys-text-dim);
+            font-size: 0.9rem;
+        }
+
+        .quest-complete-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s;
+        }
+
+        .quest-complete-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .reward-box {
+            border: 2px solid var(--sys-gold);
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 215, 0, 0.1);
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.3);
+            transform: scale(0.8);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .quest-complete-overlay.active .reward-box {
+            transform: scale(1);
+        }
+    </style>
 </head>
 <body>
 
+    <div class="scanline"></div>
+
     <header class="main-header">
         <div class="logo">
-             <a href="index.html" style="color: inherit; text-decoration: none;">Viixelite</a>
+            <a href="index.html" style="color: inherit; text-decoration: none;">VIIX<span>ELITE</span></a>
         </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
-
         <nav class="main-nav">
-             <ul>
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li><a href="tools.html">Tools</a></li>
-                <li><a href="blog.html">Blogs</a></li>
-                <li><a href="auth.html" style="color: #ff5722;">Login</a></li>
+                <li><a href="dashboard.html">Status Window</a></li>
             </ul>
-             <button id="theme-toggle-btn" class="theme-toggle">🌓 Mode</button>
         </nav>
     </header>
 
-    <section class="hero-section" style="min-height: auto; padding: 4rem 5%;">
-        <div class="hero-content">
-            <h1>30-Day Fitness Challenge</h1>
-            <p>Consistency is key. Track your daily progress and build a habit that lasts.</p>
-        </div>
-    </section>
-
-    <div class="challenge-container">
-        <div class="challenge-progress">
-            <div>
-                <span>Your Progress: </span>
-                <span id="progress-text">0% Completed</span>
-            </div>
-            <button class="reset-btn" id="reset-challenge">Reset Challenge</button>
+    <div class="quest-container glass-panel system-border">
+        <div class="quest-header">
+            <h4 style="color: var(--sys-danger); letter-spacing: 3px;">[ DAILY QUEST ]</h4>
+            <h2 style="margin-top: 0.5rem;">PREPARE TO BECOME STRONG</h2>
+            <p style="color: var(--sys-text-dim);">Incomplete quests will result in a penalty.</p>
         </div>
 
-        <div class="challenge-grid" id="challenge-grid">
-            <!-- Days generated by JS -->
+        <ul class="quest-list">
+            <li class="quest-item">
+                <span>PUSH-UPS</span>
+                <div>
+                    <span class="quest-status">[ <span id="pushups-curr">0</span> / 100 ]</span>
+                    <input type="number" class="quest-input" min="0" max="100" oninput="updateQuest('pushups', this.value)">
+                </div>
+            </li>
+            <li class="quest-item">
+                <span>SIT-UPS</span>
+                <div>
+                    <span class="quest-status">[ <span id="situps-curr">0</span> / 100 ]</span>
+                    <input type="number" class="quest-input" min="0" max="100" oninput="updateQuest('situps', this.value)">
+                </div>
+            </li>
+            <li class="quest-item">
+                <span>SQUATS</span>
+                <div>
+                    <span class="quest-status">[ <span id="squats-curr">0</span> / 100 ]</span>
+                    <input type="number" class="quest-input" min="0" max="100" oninput="updateQuest('squats', this.value)">
+                </div>
+            </li>
+            <li class="quest-item">
+                <span>RUNNING (KM)</span>
+                <div>
+                    <span class="quest-status">[ <span id="run-curr">0</span> / 10 ]</span>
+                    <input type="number" class="quest-input" min="0" max="10" oninput="updateQuest('run', this.value)">
+                </div>
+            </li>
+        </ul>
+
+        <div style="margin-top: 2rem; text-align: center;">
+            <p id="warning-msg" class="danger-text" style="display: none;">WARNING: QUEST INCOMPLETE</p>
         </div>
     </div>
 
-    <footer class="main-footer">
-        <div class="footer-bottom">
-            <p>© 2025 Viixelite. All rights reserved.</p>
+    <div id="completion-modal" class="quest-complete-overlay">
+        <div class="reward-box">
+            <h2 style="color: var(--sys-gold); text-shadow: 0 0 10px var(--sys-gold);">QUEST COMPLETE</h2>
+            <p style="margin: 1rem 0;">You have completed the Daily Quest.</p>
+            <div style="margin-top: 1rem; border-top: 1px solid var(--sys-gold); padding-top: 1rem;">
+                <p>REWARDS:</p>
+                <ul style="list-style: none; margin-top: 0.5rem; color: var(--sys-gold);">
+                    <li>+ Status Recovery</li>
+                    <li>+ 3 Ability Points</li>
+                    <li>+ Random Box</li>
+                </ul>
+            </div>
+            <button class="system-btn" style="margin-top: 2rem; border-color: var(--sys-gold); color: var(--sys-gold);" onclick="closeModal()">ACCEPT</button>
         </div>
-    </footer>
+    </div>
 
-    <script src="theme.js"></script>
-    <script src="challenge.js"></script>
+    <script>
+        const goals = {
+            pushups: 100,
+            situps: 100,
+            squats: 100,
+            run: 10
+        };
+
+        const state = {
+            pushups: 0,
+            situps: 0,
+            squats: 0,
+            run: 0
+        };
+
+        function updateQuest(type, val) {
+            val = parseInt(val) || 0;
+            state[type] = val;
+
+            // Update UI text
+            document.getElementById(`${type}-curr`).innerText = val;
+
+            // Visual feedback if goal met
+            const input = document.activeElement;
+            if (val >= goals[type]) {
+                input.style.borderColor = 'var(--sys-gold)';
+                input.style.color = 'var(--sys-gold)';
+            } else {
+                input.style.borderColor = 'var(--sys-cyan)';
+                input.style.color = 'var(--sys-text-white)';
+            }
+
+            checkCompletion();
+        }
+
+        function checkCompletion() {
+            if (state.pushups >= goals.pushups &&
+                state.situps >= goals.situps &&
+                state.squats >= goals.squats &&
+                state.run >= goals.run) {
+
+                document.getElementById('completion-modal').classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('completion-modal').classList.remove('active');
+            alert('Rewards accepted. Items added to Inventory.');
+        }
+    </script>
 </body>
 </html>

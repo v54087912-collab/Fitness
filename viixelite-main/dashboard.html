@@ -3,57 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - ViixElite</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>Status Window - ViixElite</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="auth.css">
+    <style>
+        .status-container {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 5%;
+        }
+
+        .avatar-panel {
+            text-align: center;
+        }
+
+        .avatar-img {
+            width: 200px;
+            height: 200px;
+            background: #000;
+            border-radius: 50%;
+            border: 2px solid var(--sys-cyan);
+            box-shadow: 0 0 20px var(--sys-cyan-dim);
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .avatar-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        .stats-panel {
+            padding: 2rem;
+        }
+
+        .stat-row {
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            color: var(--sys-cyan);
+        }
+
+        .stat-bar-bg {
+            height: 10px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            position: relative;
+        }
+
+        .stat-bar-fill {
+            height: 100%;
+            background: var(--sys-cyan);
+            width: 0%; /* Dynamic */
+            box-shadow: 0 0 10px var(--sys-cyan);
+            transition: width 1s ease-out;
+        }
+
+        .level-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--sys-cyan-dim);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .status-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
+
+    <div class="scanline"></div>
 
     <header class="main-header">
         <div class="logo">
             <a href="index.html" style="color: inherit; text-decoration: none;">
-                <img src="LOGO.png" alt="Viixelite Logo">
+                VIIX<span>ELITE</span>
             </a>
         </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
-
         <nav class="main-nav">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="plans.html">Quests</a></li>
+                <li><a href="dashboard.html" class="active">Status Window</a></li>
+                <li><a href="#" id="logout-btn" style="color: var(--sys-danger);">Logout</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="dashboard-container">
-        <div class="dashboard-card">
-            <h1>Welcome to Your Dashboard</h1>
-            <p>You have successfully logged in.</p>
-            <div id="user-info" class="user-email-display">
-                <!-- User email will appear here -->
+    <div class="status-container">
+        <!-- Avatar Side -->
+        <div class="avatar-panel glass-panel system-border" style="padding: 2rem;">
+            <div class="avatar-img">
+                <img src="PP.png" alt="Player Avatar">
+            </div>
+            <h2 id="player-name">PLAYER</h2>
+            <p class="neon-text" style="margin-top: 0.5rem;">Job: E-Rank Hunter</p>
+            <p style="color: var(--sys-text-dim); margin-top: 0.5rem;">Title: None</p>
+        </div>
+
+        <!-- Stats Side -->
+        <div class="stats-panel glass-panel system-border">
+            <div class="level-info">
+                <h2>Level <span id="player-level" style="color: var(--sys-gold);">1</span></h2>
+                <div style="text-align: right;">
+                    <p style="font-size: 0.8rem; color: var(--sys-text-dim);">EXP</p>
+                    <p>0 / 100</p>
+                </div>
             </div>
 
-            <button id="logout-btn" class="logout-btn">Log Out</button>
+            <div class="stat-row">
+                <div class="stat-label">
+                    <span>STR (Strength)</span>
+                    <span id="str-val">10</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: 10%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">
+                    <span>AGI (Agility)</span>
+                    <span id="agi-val">10</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: 10%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">
+                    <span>VIT (Vitality)</span>
+                    <span id="vit-val">10</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: 10%;"></div>
+                </div>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat-label">
+                    <span>INT (Intelligence)</span>
+                    <span id="int-val">10</span>
+                </div>
+                <div class="stat-bar-bg">
+                    <div class="stat-bar-fill" style="width: 10%;"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem; text-align: center;">
+                <p style="color: var(--sys-text-dim); margin-bottom: 1rem;">Available Stat Points: <span style="color: var(--sys-gold);">0</span></p>
+                <a href="challenge.html" class="system-btn">Start Daily Quest</a>
+            </div>
         </div>
     </div>
 
-    <footer class="main-footer">
-        <div class="footer-bottom">
-            <p>© 2025 Viixelite. All rights reserved.</p>
-        </div>
-    </footer>
-
     <!-- Firebase SDK & Logic -->
     <script type="module" src="auth.js"></script>
-
+    <script>
+        // Mock data populator if auth doesn't handle it immediately
+        window.addEventListener('DOMContentLoaded', () => {
+             // Animate bars
+             setTimeout(() => {
+                 const bars = document.querySelectorAll('.stat-bar-fill');
+                 bars.forEach(bar => {
+                     // Random width for effect or read from actual width style if set dynamically
+                     const target = bar.style.width;
+                     bar.style.width = '0%';
+                     setTimeout(() => bar.style.width = target, 100);
+                 });
+             }, 500);
+        });
+    </script>
 </body>
 </html>

@@ -3,189 +3,166 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fitness Categories - ViixElite</title>
+  <title>Dungeon Gates - ViixElite</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+      .gate-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 2rem;
+          padding: 4rem 5%;
+      }
 
-  <!-- Use same fonts as Home for consistency -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+      .gate-card {
+          position: relative;
+          background: #000;
+          border: 1px solid #333;
+          padding: 2rem;
+          overflow: hidden;
+          transition: transform 0.3s;
+      }
 
-  <!-- Link to the updated CSS -->
-  <link rel="stylesheet" href="FITNESS CATERGORY.css">
+      .gate-card:hover {
+          transform: translateY(-5px);
+      }
+
+      /* Ranks */
+      .rank-e { border-color: #a0a0a0; box-shadow: 0 0 10px #a0a0a0; }
+      .rank-c { border-color: #ffd700; box-shadow: 0 0 10px #ffd700; }
+      .rank-b { border-color: #ff5722; box-shadow: 0 0 10px #ff5722; }
+      .rank-a { border-color: #ff003c; box-shadow: 0 0 15px #ff003c; }
+      .rank-s { border-color: #9400d3; box-shadow: 0 0 20px #9400d3; }
+
+      .gate-rank {
+          position: absolute;
+          top: 10px; right: 10px;
+          font-family: var(--font-heading);
+          font-weight: 900;
+          font-size: 2rem;
+          opacity: 0.3;
+      }
+
+      .gate-title {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          z-index: 2;
+          position: relative;
+      }
+
+      .gate-desc {
+          color: var(--sys-text-dim);
+          font-size: 0.9rem;
+          margin-bottom: 1.5rem;
+      }
+
+      .gate-btn {
+          display: inline-block;
+          padding: 0.5rem 1.5rem;
+          border: 1px solid currentColor;
+          text-decoration: none;
+          font-family: var(--font-heading);
+          font-size: 0.8rem;
+          transition: all 0.3s;
+      }
+
+      .gate-btn:hover {
+          background: currentColor;
+          color: #000;
+      }
+  </style>
 </head>
 <body>
 
+  <div class="scanline"></div>
+
   <header class="main-header">
     <div class="logo">
-      <img src="LOGO.png" alt="Viixelite Logo">
+      <a href="index.html" style="color: inherit; text-decoration: none;">VIIX<span>ELITE</span></a>
     </div>
-
-    <!-- Keep same checkbox + label ordering used on Home so mobile menu works similarly -->
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
-
     <nav class="main-nav">
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="FITNESS%20CATERGORY.html" class="active">Fitness Categories</a></li>
-        <li><a href="diets.html">Diets</a></li>
-        <li><a href="plans.html">Plans</a></li>
-        <li><a href="blog.html">Blogs</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="FITNESS%20CATERGORY.html" class="active">Dungeon Gates</a></li>
+        <li><a href="diets.html">Recovery</a></li>
+        <li><a href="plans.html">Quests</a></li>
+        <li><a href="blog.html">Logs</a></li>
+        <li><a href="auth.html" style="color: var(--sys-cyan);">Awaken</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero section matching Home styles -->
-  <section class="hero small-hero">
+  <section class="hero-section" style="min-height: 40vh;">
     <div class="hero-content">
-      <h1>Explore Fitness Categories</h1>
-      <p>Discover different training types and find what suits your goals.</p>
+      <h1>Dungeon Gates</h1>
+      <p>Select a gate based on your rank. Proceed with caution.</p>
     </div>
   </section>
 
-  <!-- Categories -->
-  <section class="categories">
-    <h2 class="section-heading">Training Types</h2>
-    <div class="category-grid">
+  <section class="gate-grid">
 
-      <div class="category-card">
-        <a href="CARDIO.html">
-          <h3>🏃 Cardio Training</h3>
-          <p>Improve stamina, endurance, and heart health.</p>
-          <ul>
-            <li>Running & Jogging</li>
-            <li>Cycling</li>
-            <li>Jump Rope</li>
-            <li>HIIT Workouts</li>
-          </ul>
-        </a>
+      <!-- E-Rank -->
+      <div class="gate-card rank-e">
+        <span class="gate-rank" style="color: #a0a0a0;">E</span>
+        <h3 class="gate-title" style="color: #a0a0a0;">Cardio Training</h3>
+        <p class="gate-desc">Basic stamina training. Low difficulty. Suitable for beginners.</p>
+        <a href="CARDIO.html" class="gate-btn" style="color: #a0a0a0;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-        <a href="strength.html">
-          <h3>💪 Strength Training</h3>
-          <p>Build lean muscle and increase overall strength.</p>
-          <ul>
-            <li>Weight Lifting</li>
-            <li>Push-Ups / Squats</li>
-            <li>Deadlifts</li>
-            <li>Resistance Bands</li>
-          </ul>
-        </a>
+      <!-- D-Rank -->
+      <div class="gate-card rank-c">
+        <span class="gate-rank" style="color: #ffd700;">D</span>
+        <h3 class="gate-title" style="color: #ffd700;">Flexibility & Mobility</h3>
+        <p class="gate-desc">Improve range of motion. Necessary for survival in higher gates.</p>
+        <a href="flexibility&mobilty.html" class="gate-btn" style="color: #ffd700;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-        <a href="agility&speed.html">
-          <h3>⚡ Agility & Speed</h3>
-          <p>Boost quickness, reflex, and athletic performance.</p>
-          <ul>
-            <li>Ladder Drills</li>
-            <li>Sprints</li>
-            <li>Cone Drills</li>
-            <li>Reaction Training</li>
-          </ul>
-        </a>
+      <!-- C-Rank -->
+      <div class="gate-card rank-b">
+        <span class="gate-rank" style="color: #ff5722;">C</span>
+        <h3 class="gate-title" style="color: #ff5722;">Endurance Training</h3>
+        <p class="gate-desc">Long-duration stress tests. Builds mental and physical fortitude.</p>
+        <a href="endurance.html" class="gate-btn" style="color: #ff5722;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-        <a href="flexibility&mobilty.html">
-          <h3>🧘 Flexibility & Mobility</h3>
-          <p>Increase range of motion & prevent injuries.</p>
-          <ul>
-            <li>Yoga</li>
-            <li>Dynamic Stretching</li>
-            <li>Pilates</li>
-            <li>Foam Rolling</li>
-          </ul>
-        </a>
+      <!-- B-Rank -->
+      <div class="gate-card rank-a">
+        <span class="gate-rank" style="color: #ff003c;">B</span>
+        <h3 class="gate-title" style="color: #ff003c;">Strength Training</h3>
+        <p class="gate-desc">Heavy resistance required. High risk of muscle failure.</p>
+        <a href="strength.html" class="gate-btn" style="color: #ff003c;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-        <a href="balanceandstaibility.html">
-          <h3>⚖️ Balance & Stability</h3>
-          <p>Strengthen your core and improve control.</p>
-          <ul>
-            <li>Plank Variations</li>
-            <li>Single-Leg Exercises</li>
-            <li>Stability Ball Drills</li>
-            <li>Bosu Ball Training</li>
-          </ul>
-        </a>
+      <!-- A-Rank -->
+      <div class="gate-card rank-s">
+        <span class="gate-rank" style="color: #9400d3;">A</span>
+        <h3 class="gate-title" style="color: #9400d3;">Agility & Speed</h3>
+        <p class="gate-desc">Reaction time is critical. Only for the swift.</p>
+        <a href="agility&speed.html" class="gate-btn" style="color: #9400d3;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-      <a href="endurance.html">
-        <h3>🏅 Endurance Training</h3>
-        <p>Boost stamina for long-duration activities.</p>
-        <ul>
-          <li>Long-Distance Running</li>
-          <li>Cycling</li>
-          <li>Rowing</li>
-          <li>Swimming</li>
-        </ul>
-      </a>
+       <!-- S-Rank -->
+      <div class="gate-card rank-s" style="border-color: #8b0000; box-shadow: 0 0 25px #ff0000;">
+        <span class="gate-rank" style="color: #ff0000;">S</span>
+        <h3 class="gate-title" style="color: #ff0000;">Functional Training</h3>
+        <p class="gate-desc">Complete combat readiness. Prepares for real-world scenarios.</p>
+        <a href="functional.html" class="gate-btn" style="color: #ff0000;">ENTER GATE</a>
       </div>
 
-      <div class="category-card">
-      <a href="functional.html">
-        <h3>🔄 Functional Training</h3>
-        <p>Train for real-life movements and strength.</p>
-        <ul>
-          <li>Kettlebell Swings</li>
-          <li>Medicine Ball Throws</li>
-          <li>Burpees</li>
-          <li>Bodyweight Circuits</li>
-        </ul>
-      </a>
+       <!-- Hidden Rank -->
+      <div class="gate-card rank-hidden" style="border-color: #800080; box-shadow: 0 0 15px #800080;">
+        <span class="gate-rank" style="color: #800080;">?</span>
+        <h3 class="gate-title" style="color: #800080;">Balance & Stability</h3>
+        <p class="gate-desc">Master your center of gravity. Essential for advanced movement.</p>
+        <a href="balanceandstaibility.html" class="gate-btn" style="color: #800080;">ENTER GATE</a>
       </div>
 
-    </div>
   </section>
 
- <!-- ===== Footer Section ===== -->
-<footer class="main-footer">
-  <div class="footer-container">
-    
-    <!-- Brand/Logo -->
-    <div class="footer-brand">
-      <h2>Viixelite</h2>
-      <p>Transform Your Body, Transform Your Life</p>
-    </div>
+  <footer class="main-footer">
+      <div style="text-align: center; font-size: 0.8rem; color: #555;">
+          © 2025 System Interface.
+      </div>
+  </footer>
 
-    <!-- Quick Links -->
-    <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="faq.html">Faq</a></li>
-        <li><a href="diets.html">Diet</a></li>
-      </ul>
-    </div>
-
-    <!-- Contact Info -->
-    <div class="footer-contact">
-      <h3>Contact Us</h3>
-      <p>Email : yashasvidhiman113@gmail.com</p>
-      <p>Phone : 8057640790</p>
-    </div>
-
-    <!-- Social Media -->
-    <div class="footer-social">
-      <h3>Follow Us</h3>
-      <a href="http://www.instagram.com/janxcode?igsh=dGcwNmZncGN5cDbU">Instagram</a>
-      <a href="https://www.youtube.com/@StrawJan">YouTube</a>
-    </div>
-  </div>
-
-  <!-- Bottom Footer -->
-  <div class="footer-bottom">
-    <a href="privacy.html">Privacy Policy</a> | 
-    <a href="terms.html">Terms of Service</a>
-    <p>© 2025 Viixelite. All rights reserved.</p>
-  </div>
-</footer>
 </body>
 </html>

@@ -3,89 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auth - ViixElite</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-
+    <title>Awaken - ViixElite</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="auth.css">
+    <style>
+        .auth-container {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .auth-box {
+            background: rgba(11, 13, 23, 0.8);
+            border: 1px solid var(--sys-cyan);
+            padding: 3rem;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            position: relative;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--sys-cyan-dim);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            color: var(--sys-text-dim);
+            font-family: var(--font-heading);
+            transition: all 0.3s;
+        }
+
+        .auth-tab.active {
+            color: var(--sys-cyan);
+            border-bottom: 2px solid var(--sys-cyan);
+            background: rgba(0, 243, 255, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--sys-cyan);
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            color: #fff;
+            font-family: var(--font-mono);
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--sys-cyan);
+        }
+
+        .system-btn {
+            width: 100%;
+            margin: 1rem 0 0 0;
+        }
+
+        .error-msg {
+            color: var(--sys-danger);
+            font-size: 0.8rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
+    <div class="scanline"></div>
+
     <header class="main-header">
         <div class="logo">
-            <a href="index.html" style="color: inherit; text-decoration: none;">
-                <img src="LOGO.png" alt="Viixelite Logo">
-            </a>
+            <a href="index.html" style="color: inherit; text-decoration: none;">VIIX<span>ELITE</span></a>
         </div>
-
-        <input type="checkbox" id="menu-toggle" class="menu-toggle">
-        <label for="menu-toggle" class="hamburger-menu">&#9776;</label>
-
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="FITNESS%20CATERGORY.html">Fitness Categories</a></li>
-                <li><a href="plans.html">Plans</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="index.html">Back to System</a></li>
             </ul>
         </nav>
     </header>
 
     <div class="auth-container">
-        <div class="auth-card">
-            <!-- Login Form -->
-            <div id="login-section">
-                <h2>Welcome Back</h2>
-                <div id="login-message" class="message"></div>
-                <form id="login-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="login-email">Email Address</label>
-                        <input type="email" id="login-email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">Password</label>
-                        <input type="password" id="login-password" placeholder="••••••••" required>
-                    </div>
-                    <button type="submit" class="auth-btn">Log In</button>
-                </form>
-                <p class="toggle-text">
-                    New here? <span class="toggle-link" id="show-signup">Create an account</span>
-                </p>
+        <div class="auth-box">
+            <div style="position: absolute; top: -10px; left: 20px; background: #000; padding: 0 10px; color: var(--sys-cyan); font-family: var(--font-mono); font-size: 0.8rem;">
+                SYSTEM_AUTH_V1.0
             </div>
 
-            <!-- Signup Form (Hidden by default) -->
-            <div id="signup-section" style="display: none;">
-                <h2>Join ViixElite</h2>
-                <div id="signup-message" class="message"></div>
-                <form id="signup-form" class="auth-form">
-                    <div class="form-group">
-                        <label for="signup-email">Email Address</label>
-                        <input type="email" id="signup-email" placeholder="you@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="signup-password">Password</label>
-                        <input type="password" id="signup-password" placeholder="At least 6 characters" minlength="6" required>
-                    </div>
-                    <button type="submit" class="auth-btn">Sign Up</button>
-                </form>
-                <p class="toggle-text">
-                    Already have an account? <span class="toggle-link" id="show-login">Log In</span>
-                </p>
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">ACCESS SYSTEM</div>
+                <div class="auth-tab" id="tab-signup" onclick="switchTab('signup')">AWAKEN</div>
+            </div>
+
+            <!-- Login Form -->
+            <form id="login-form">
+                <div class="form-group">
+                    <label>HUNTER ID (EMAIL)</label>
+                    <input type="email" id="login-email" required placeholder="name@hunter.guild">
+                </div>
+                <div class="form-group">
+                    <label>ACCESS CODE (PASSWORD)</label>
+                    <input type="password" id="login-password" required placeholder="********">
+                </div>
+                <button type="submit" class="system-btn">ENTER GATE</button>
+                <div id="login-error" class="error-msg">Access Denied. Invalid Credentials.</div>
+            </form>
+
+            <!-- Signup Form -->
+            <form id="signup-form" style="display: none;">
+                <div class="form-group">
+                    <label>HUNTER ID (EMAIL)</label>
+                    <input type="email" id="signup-email" required placeholder="name@hunter.guild">
+                </div>
+                <div class="form-group">
+                    <label>CREATE ACCESS CODE</label>
+                    <input type="password" id="signup-password" required placeholder="********">
+                </div>
+                <div class="form-group">
+                    <label>CONFIRM CODE</label>
+                    <input type="password" id="signup-confirm-password" required placeholder="********">
+                </div>
+                <button type="submit" class="system-btn">AWAKEN</button>
+                <div id="signup-error" class="error-msg">Awakening Failed. Try Again.</div>
+            </form>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <button onclick="googleLogin()" style="background: none; border: 1px solid #333; color: #aaa; padding: 0.5rem 1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 100%; gap: 10px;">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="">
+                    <span>Continue with Google Guild</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <footer class="main-footer">
-        <div class="footer-bottom">
-            <p>© 2025 Viixelite. All rights reserved.</p>
-        </div>
-    </footer>
-
     <!-- Firebase SDK & Logic -->
     <script type="module" src="auth.js"></script>
+    <script>
+        function switchTab(tab) {
+            const loginForm = document.getElementById('login-form');
+            const signupForm = document.getElementById('signup-form');
+            const tabLogin = document.getElementById('tab-login');
+            const tabSignup = document.getElementById('tab-signup');
 
+            if (tab === 'login') {
+                loginForm.style.display = 'block';
+                signupForm.style.display = 'none';
+                tabLogin.classList.add('active');
+                tabSignup.classList.remove('active');
+            } else {
+                loginForm.style.display = 'none';
+                signupForm.style.display = 'block';
+                tabLogin.classList.remove('active');
+                tabSignup.classList.add('active');
+            }
+        }
+
+        // Mock Google Login trigger for UI visual, real logic in auth.js
+        function googleLogin() {
+            // This would call the firebase google auth provider
+            console.log("Initiating Google Auth...");
+        }
+    </script>
 </body>
 </html>
