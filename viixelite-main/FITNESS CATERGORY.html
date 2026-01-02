@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dungeon Gates - ViixElite</title>
   <link rel="stylesheet" href="style.css">
+  <script type="module" src="auth.js"></script>
   <style>
       .gate-grid {
           display: grid;
@@ -81,12 +82,15 @@
     </div>
     <nav class="main-nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Main Hall</a></li>
         <li><a href="FITNESS%20CATERGORY.html" class="active">Dungeon Gates</a></li>
-        <li><a href="diets.html">Recovery</a></li>
+        <li><a href="diets.html">Inventory</a></li>
         <li><a href="plans.html">Quests</a></li>
-        <li><a href="blog.html">Logs</a></li>
-        <li><a href="auth.html" style="color: var(--sys-cyan);">Awaken</a></li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="blog.html">Archives</a></li>
+        <li id="auth-link-container">
+            <a href="auth.html" id="nav-auth-btn" style="color: var(--sys-cyan);">Awaken</a>
+        </li>
       </ul>
     </nav>
   </header>
@@ -160,7 +164,7 @@
 
   <footer class="main-footer">
       <div style="text-align: center; font-size: 0.8rem; color: #555;">
-          © 2025 System Interface.
+          © 2025 ViixElite System.
       </div>
   </footer>
 

@@ -6,6 +6,8 @@
     <title>ViixElite - System Interface</title>
 
     <link rel="stylesheet" href="style.css">
+    <!-- Firebase Auth Check -->
+    <script type="module" src="auth.js"></script>
 </head>
 <body>
 
@@ -23,13 +25,18 @@
 
         <nav class="main-nav">
             <ul>
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html" class="active">Main Hall</a></li>
                 <li><a href="FITNESS%20CATERGORY.html">Dungeon Gates</a></li>
-                <li><a href="diets.html">Recovery</a></li>
+                <li><a href="diets.html">Inventory</a></li>
                 <li><a href="plans.html">Quests</a></li>
-                <li><a href="tools.html">System Tools</a></li>
-                <li><a href="blog.html">Logs</a></li>
-                <li><a href="auth.html" style="color: var(--sys-cyan);">Awaken</a></li>
+                <li><a href="tools.html">Tools</a></li>
+                <li><a href="blog.html">Archives</a></li>
+                <!-- Profile / Auth Logic handled by JS -->
+                <li id="auth-link-container">
+                    <a href="auth.html" id="nav-auth-btn" style="color: var(--sys-cyan);">
+                        <span id="auth-btn-text">Awaken</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -62,7 +69,7 @@
             <div class="feature-card system-border">
                 <i class="icon">🧪</i>
                 <h3>Recovery Items</h3>
-                <p>Personalized diet plans to restore vitality and health.</p>
+                <p>Personalized potions (diets) to restore vitality and health.</p>
             </div>
             <div class="feature-card system-border">
                 <i class="icon">📊</i>
@@ -88,7 +95,7 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html">Main Hall</a></li>
                     <li><a href="FITNESS%20CATERGORY.html">Dungeon Gates</a></li>
                     <li><a href="plans.html">Quests</a></li>
                     <li><a href="faq.html">System Help</a></li>
