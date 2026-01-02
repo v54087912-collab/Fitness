@@ -5,18 +5,18 @@
     /* System Colors */
     --sys-bg-dark: #000000;
     --sys-bg-navy: #0b0d17;
-    --sys-bg-glass: rgba(11, 13, 23, 0.7);
+    --sys-bg-glass: rgba(0, 0, 0, 0.85);
 
     /* Accents */
     --sys-cyan: #00f3ff;
     --sys-cyan-dim: rgba(0, 243, 255, 0.2);
     --sys-danger: #ff003c;
     --sys-gold: #ffd700;
-    --sys-silver: #e0e0e0;
+    --sys-silver: #a1a1aa;
 
     /* Text */
     --sys-text-white: #ffffff;
-    --sys-text-dim: #a0a0a0;
+    --sys-text-dim: #a1a1aa;
 
     /* Glows */
     --glow-cyan: 0 0 10px var(--sys-cyan), 0 0 20px var(--sys-cyan);
@@ -42,8 +42,8 @@ body {
     font-size: 18px;
     line-height: 1.6;
     overflow-x: hidden;
-    background-image:
-        radial-gradient(circle at 50% 50%, #0b0d17 0%, #000000 100%);
+    /* Force Pitch Black */
+    background: #000000;
     min-height: 100vh;
 }
 
@@ -88,6 +88,7 @@ a:hover {
 .system-border {
     border: 1px solid var(--sys-cyan);
     position: relative;
+    background: #000000;
 }
 
 .system-border::before {
@@ -110,7 +111,7 @@ a:hover {
 
 /* ===== Header ===== */
 .main-header {
-    background: rgba(0, 0, 0, 0.9);
+    background: #000000;
     border-bottom: 1px solid var(--sys-cyan);
     padding: 1rem 5%;
     display: flex;
@@ -146,6 +147,7 @@ a:hover {
     font-size: 0.9rem;
     color: var(--sys-text-dim);
     position: relative;
+    text-transform: uppercase;
 }
 
 .main-nav a:hover, .main-nav a.active {
@@ -247,7 +249,7 @@ a:hover {
 }
 
 .feature-card {
-    background: rgba(11, 13, 23, 0.6);
+    background: #000000;
     border: 1px solid var(--sys-cyan-dim);
     padding: 2rem;
     transition: all 0.3s;
@@ -268,7 +270,7 @@ a:hover {
 }
 
 /* ===== Inventory & Quest Grid (Shared) ===== */
-.inventory-section, .quest-section {
+.inventory-section, .quest-section, .blogs-section {
     padding: 4rem 5%;
 }
 
@@ -281,7 +283,7 @@ a:hover {
 }
 
 .inventory-filter-btn, .quest-filter-btn {
-    background: rgba(11, 13, 23, 0.8);
+    background: #000000;
     border: 1px solid var(--sys-text-dim);
     color: var(--sys-text-dim);
     padding: 0.5rem 1.5rem;
@@ -307,7 +309,7 @@ a:hover {
 
 /* ===== Item Slot (Inventory) ===== */
 .item-slot {
-    background: rgba(11, 13, 23, 0.7);
+    background: #000000;
     border: 1px solid var(--sys-cyan-dim);
     padding: 1.5rem;
     position: relative;
@@ -391,10 +393,91 @@ a:hover {
     box-shadow: 0 0 15px var(--sys-cyan);
 }
 
+/* ===== Blog / Archives (Data Slate) ===== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.data-slate {
+    background: #000000;
+    border: 1px solid var(--sys-cyan-dim);
+    padding: 1.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-slate:hover {
+    border-color: var(--sys-cyan);
+    box-shadow: 0 0 15px var(--sys-cyan-dim);
+    transform: translateY(-5px);
+}
+
+.data-slate img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid var(--sys-text-dim);
+    margin-bottom: 1rem;
+    filter: grayscale(100%) contrast(1.2);
+    transition: all 0.3s;
+}
+
+.data-slate:hover img {
+    filter: grayscale(0%) contrast(1);
+    border-color: var(--sys-cyan);
+}
+
+.slate-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--sys-text-white);
+    margin-bottom: 0.5rem;
+}
+
+.slate-meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--sys-cyan);
+    margin-bottom: 1rem;
+}
+
+.slate-desc {
+    font-size: 0.95rem;
+    color: var(--sys-text-dim);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.read-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid var(--sys-cyan);
+    color: var(--sys-cyan);
+    padding: 0.5rem 1.5rem;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    text-align: center;
+}
+
+.read-btn:hover {
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: 0 0 10px var(--sys-cyan-dim);
+    text-decoration: none;
+}
+
+
 /* ===== Quest Card (Plans) ===== */
 .quest-card {
-    background: rgba(11, 13, 23, 0.7);
-    border: 1px solid var(--sys-danger); /* Quests use red accents sometimes */
+    background: #000000;
+    border: 1px solid var(--sys-danger);
     padding: 2rem;
     position: relative;
     transition: all 0.3s;
@@ -480,7 +563,7 @@ a:hover {
 /* ===== Footer ===== */
 .main-footer {
     border-top: 1px solid var(--sys-cyan-dim);
-    background: #050505;
+    background: #000000;
     padding: 3rem 5%;
     margin-top: 4rem;
 }
